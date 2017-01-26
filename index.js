@@ -22,8 +22,9 @@ var totalBatteries = batteryBatches.reduce(function(total, sum){ return total + 
 
 var wordCountMap = {}
 
-monologueLines.map(function(sentence){
-  return sentence.split(" ").length
-}).reduce(function(total, key){
-  return wordCountMap[key.toString()] ? wordCountMap[key.toString()] +=1 : wordCountMap[key.toString()] = 1
+monologueLines.reduce(function(total, sentence){
+  var key = sentence.split(" ").length
+  return wordCountMap[key] ? wordCountMap[key] +=1 : wordCountMap[key] = 1
 }, 1)
+
+console.log(wordCountMap)
